@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import * as os from 'os';
 
 interface IResult {
     (result: boolean) : void;
@@ -8,8 +9,6 @@ interface IResult {
 export class FileSys {
     
     static CreateFile(currFile: string, filename: string, onDone: IResult): void {
-    
-        var fileContent = "Hello World!";
 
         // Check for file extension. If it's empty, append .cs and if it's 
         // anything other than .cs, return false since we support only c# :D
@@ -21,6 +20,11 @@ export class FileSys {
             return;
         }
         var currDir = path.dirname(currFile);
+
+        var fileContent = "\n\npublic class " + filename.split('.')[0] + " { \n\n" + 
+            "   // variable declarations \n" + 
+            "   // method declarations \n\n" + 
+            "}";
 
         fs.writeFile(path.join(currDir, filename), fileContent, (err) => {
             if (err) {
