@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import * as fs from 'fs';
+import { FileSys } from './filesys';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -22,18 +22,15 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	let createFile = vscode.commands.registerCommand('extension.newfile', () => {
-		var fileContent = "Hello World!";
-		var filepath = "C:\\Users\\Abhi\\Documents\\mynewfile.txt";
 
-		fs.writeFile(filepath, fileContent, (err) => {
-
-			if (err) { 
-				vscode.window.showErrorMessage('Sorry! Exception occured. Check file name again maybe?');
-				throw err;
+		FileSys.CreateFile("C:\\Users\\Abhi\\Documents\\mynewfile.txt", (res) => {
+			if (res) {
+				vscode.window.showInformationMessage('Succes! File created');
+			} else {
+				vscode.window.showErrorMessage('Oops. Some error while creating file');
 			}
-
-			console.log("The file was succesfully saved!");
-		}); 
+		})
+		
 	});
 
 	context.subscriptions.push(disposable);
