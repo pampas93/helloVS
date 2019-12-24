@@ -4,7 +4,7 @@
 	"description": "Maiden VS Code extension",
 	"version": "0.0.1",
 	"publisher": "pampas93",
-	"repository":"https://github.com/pampas93/helloVS",
+	"repository": "https://github.com/pampas93/helloVS",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
@@ -12,7 +12,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.hellovs"
+		"onCommand:extension.hellovs",
+		"onCommand:extension.newfile"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -20,6 +21,10 @@
 			{
 				"command": "extension.hellovs",
 				"title": "Hello VS Code"
+			},
+			{
+				"command": "extension.newfile",
+				"title": "New C# file"
 			}
 		]
 	},
@@ -39,5 +44,8 @@
 		"typescript": "^3.6.4",
 		"tslint": "^5.20.0",
 		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"fs": "0.0.1-security"
 	}
 }
