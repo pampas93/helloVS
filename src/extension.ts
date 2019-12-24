@@ -23,13 +23,27 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let createFile = vscode.commands.registerCommand('extension.newfile', () => {
 
-		FileSys.CreateFile("C:\\Users\\Abhi\\Documents\\mynewfile.txt", (res) => {
-			if (res) {
-				vscode.window.showInformationMessage('Succes! File created');
-			} else {
-				vscode.window.showErrorMessage('Oops. Some error while creating file');
+		vscode.window.showInputBox({ placeHolder: 'Enter Class name' }).then(text => {
+
+			if (text === undefined) { return; }
+
+			var currentDoc = vscode.window.activeTextEditor?.document;
+			if (currentDoc === undefined)
+			{
+				vscode.window.showErrorMessage('Please open a file, so we can get the current dir to create file');
+				return;
 			}
-		})
+			
+			FileSys.CreateFile(currentDoc.fileName, text, (res) => {
+				if (res) {
+					vscode.window.showInformationMessage('Succes! File created');
+				} else {
+					vscode.window.showErrorMessage('Oops. Some error while creating file');
+				}
+			})
+		});
+
+		
 		
 	});
 
