@@ -3,6 +3,8 @@
 	"displayName": "HelloVS",
 	"description": "Maiden VS Code extension",
 	"version": "0.0.1",
+	"publisher": "pampas93",
+	"repository":"https://github.com/pampas93/helloVS",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
