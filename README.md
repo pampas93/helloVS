@@ -1,9 +1,16 @@
-# Maiden VS code extension
+# Create new C# files
 
-Testing out my first VS Code extension
+As my first extension, I created a simple extension where the user can create c# files with the below command in the command palette
+
+`> New C# file`
+
+## Working
+
+![Working demo](https://media.giphy.com/media/ckSqYozQwhL3sW3DTG/giphy.gif)
 
 ## Features
 
-Literally does nothing! Just shows an message as notification after running hellovs in the command palette.
+- Creates a new C# file in the current working directory
+- Addes a class template in the new file with the filename used as the class name
 
 **Enjoy**
