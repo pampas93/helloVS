@@ -2,11 +2,12 @@
 	"name": "hellovs",
 	"displayName": "HelloVS - C# new file",
 	"description": "Maiden VS Code extension",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "pampas93",
 	"repository": "https://github.com/pampas93/helloVS",
+	"icon": "images/icon.png",
 	"engines": {
-		"vscode": "^1.20.0"
+		"vscode": "^1.41.0"
 	},
 	"categories": [
 		"Other"
